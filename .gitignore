@@ -4,3 +4,11 @@ first-react/README.md
 first-react/vite.config.js
 package-lock.json
 first-react/eslint.config.js
+
+second-react/package.json
+second-react/node_modules
+second-react/README.md
+second-react/vite.config.js
+second-react/package-lock.json
+second-react/eslint.config.js
+second-react/src/images

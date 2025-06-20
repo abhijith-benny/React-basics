@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #af2a2a;
+    padding: 16px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.header:hover {
+    background-color: #ab2c2c;
+}
+
+.header__logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    margin-right: 16px;
+}
+
+.header__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin: 0;
+    letter-spacing: 1px;
+}
