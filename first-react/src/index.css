@@ -13,6 +13,17 @@
     color: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    
+    color: #61dafb;
+}
+.header--logo{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
 .nav-items {
     display: flex;
@@ -78,6 +89,8 @@
     background: #20232a;
     color: #fff;
     box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    min-height: calc(90vh - 48px); /* Adjust 64px to match your footer's height */
+     /* Prevent content from being hidden behind the footer */
 }
 
 .main__title {
@@ -115,6 +128,8 @@
         padding: 24px 8px;
         max-width: 100%;
         margin: 24px 0;
+        min-height: calc(90vh - 48px); /* Adjust for smaller footer on mobile */
+
     }
     .main__title {
         font-size: 1.4rem;
@@ -122,5 +137,30 @@
     }
     .main__list-item {
         font-size: 1rem;
+    }
+}
+
+footer {
+    background: #282c34;
+    color: #bbb;
+    text-align: center;
+    padding: 16px 0;
+    font-size: 0.95rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+footer small {
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+    footer {
+        padding: 12px 0;
+        font-size: 0.85rem;
+        margin-top: 20px;
     }
 }
