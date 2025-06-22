@@ -1,0 +1,83 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff8f0;
+    padding: 24px 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    border-radius: 12px;
+    gap: 24px;
+}
+
+.header__image {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid ;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.header__title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3d2c1e;
+    margin: 0;
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+/*Body styles*/
+.body-main {
+    max-width: 480px;
+    margin: 40px auto;
+    padding: 32px 24px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.ingredient-form {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.ingredient-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1.5px solid #e0cfc2;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+    background: #fff8f0;
+}
+
+.ingredient-input:focus {
+    border-color: #ffb26b;
+    background: #fff;
+}
+
+.add-ingredient-btn {
+    padding: 12px 20px;
+    background: #ffb26b;
+    color: #3d2c1e;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.add-ingredient-btn:hover,
+.add-ingredient-btn:focus {
+    background: #ff9f43;
+    color: #fff;
+}

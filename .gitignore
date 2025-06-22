@@ -2,7 +2,7 @@ first-react/package.json
 first-react/node_modules
 first-react/README.md
 first-react/vite.config.js
-package-lock.json
+first-react/package-lock.json
 first-react/eslint.config.js
 
 second-react/package.json
@@ -12,3 +12,11 @@ second-react/vite.config.js
 second-react/package-lock.json
 second-react/eslint.config.js
 second-react/src/images
+
+third-project/package.json
+third-project/node_modules
+third-project/README.md
+third-project/vite.config.js
+third-project/package-lock.json
+third-project/eslint.config.js
+third-project/src/images
