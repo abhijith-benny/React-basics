@@ -8,33 +8,28 @@ function Body(){
     // const [ingredientList, setIngredientList] = React.useState([]);
     const [ingredientList, setIngredientList] = React.useState([]);
     const [alertMessage, setAlertMessage] = React.useState("");
-    function handlevent(){
-        
-    }
-
-    function handlesubmit(event){
-        event.persist();
-        event.preventDefault();
-        const formData = new FormData(event.target);
+     
+    function handlesubmit(formData){
         const ingredient = formData.get("ingredient");
         const trimmedIngredient = ingredient.trim();
-        if (trimmedIngredient && !ingredientList.includes(trimmedIngredient)) {
+        if (
+            trimmedIngredient &&
+            !ingredientList.some(
+            (item) => item.toLowerCase() === trimmedIngredient.toLowerCase()
+            )
+        ) {
             const newList = [...ingredientList, ingredient];
             setIngredientList(newList);
-            event.target.reset(); // Clear the input field after submission
             console.log(`Added ingredient: ${newList}`);
         } else {
-            event.target.reset();
             setAlertMessage("Ingredient already exists");
-            
-            // Optionally, you can add inline style to the alert message
             setTimeout(() => setAlertMessage(""), 2000);
         }
     }
 
     return (
         <main className="body-main">
-            <form className="ingredient-form" onSubmit={handlesubmit}>
+            <form className="ingredient-form" action={handlesubmit}>
                 <input
                     aria-label="add-ingredient"
                     type="text"
@@ -45,7 +40,7 @@ function Body(){
                     required
                     className="ingredient-input"
                 />
-                <button type="submit" className="add-ingredient-btn" onClick={handlevent}>Add Ingredient</button>
+                <button type="submit" className="add-ingredient-btn">Add Ingredient</button>
             </form>
             {alertMessage && (
                 <div className="alert-message">{alertMessage}</div>
