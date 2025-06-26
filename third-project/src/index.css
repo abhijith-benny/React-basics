@@ -187,17 +187,20 @@
     to { opacity: 1; transform: translateY(0);}
 }
 
-.suggested-recipe-container {
+.recipe-text {
+    font-family: 'Fira Mono', 'Consolas', monospace;
     font-size: 1.08rem;
     color: #3d2c1e;
-    line-height: 1.7;
     background: #fff8f0;
-    border-radius: 10px;
-    padding: 24px 20px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+    border-radius: 8px;
+    padding: 18px 14px;
+    margin: 18px 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.03);
 }
 
-.suggested-recipe-container h2 {
+.recipe-code h2 {
     font-size: 1.5rem;
     color: #ff9f43;
     margin-bottom: 12px;
@@ -205,52 +208,48 @@
     text-align: left;
 }
 
-.suggested-recipe-container h3 {
-    font-size: 1.2rem;
-    color: #3d2c1e;
-    margin: 18px 0 8px 0;
-    font-weight: 600;
+.recipe-footer {
+    margin-top: 18px;
+    text-align: right;
 }
 
-.suggested-recipe-container strong {
-    color: #7c5c3e;
-    font-weight: 700;
-    display: block;
-    margin: 16px 0 6px 0;
-}
-
-.suggested-recipe-container ul,
-.suggested-recipe-container ol {
-    margin: 0 0 16px 24px;
-    padding: 0;
-}
-
-.suggested-recipe-container ul li,
-.suggested-recipe-container ol li {
-    margin-bottom: 6px;
-    font-size: 1rem;
-}
-
-.suggested-recipe-container ul li::marker {
-    color: #ffb26b;
-}
-
-.suggested-recipe-container ol li::marker {
-    color: #ffb26b;
-    font-weight: bold;
-}
-
-.suggested-recipe-container p {
-    margin-bottom: 10px;
-    color: #7c5c3e;
+.recipe-footer p {
+    color: #bfa07a;
+    font-size: 0.98rem;
+    margin: 0;
+    font-style: italic;
 }
 
 @media (max-width: 700px) {
     .recipe-code {
         padding: 20px 8px;
     }
-    .suggested-recipe-container {
-        padding: 16px 6px;
+    .recipe-text {
+        padding: 12px 4px;
+        font-size: 0.98rem;
     }
+}
+
+.generate-recipe-btn {
+    padding: 14px 32px;
+    background: #ffb26b;
+    color: #3d2c1e;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: background 0.2s, color 0.2s, transform 0.1s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.generate-recipe-btn:hover,
+.generate-recipe-btn:focus {
+    background: #ff9f43;
+    color: #fff;
+    transform: translateY(-2px) scale(1.03);
 }
 

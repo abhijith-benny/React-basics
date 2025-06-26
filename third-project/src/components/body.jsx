@@ -12,11 +12,11 @@ function Body(){
     // To avoid committing sensitive data, move the api_key to a separate file (e.g., .env or config.js), git-ignore that file, and import it where needed.
     const [ingredientList, setIngredientList] = React.useState([]);
     const [alertMessage, setAlertMessage] = React.useState("");
-    const [recipeshown, setRecipeShown] = React.useState(false);
+    const [recipe, setRecipe] = React.useState("");
 
     async function getrecipe(){
-        const recipemark=await getRecipeFromGroq(ingredientList)
-        console.log(recipemark);
+        const recipeMarkdown=await getRecipeFromGroq(ingredientList)
+        setRecipe(recipeMarkdown);
     }
 
     function handlesubmit(formData){
@@ -70,8 +70,8 @@ function Body(){
                 </>
             </main>
             <div className="recipe-header">
-                {recipeshown && 
-                    <ClaudeRecipe />
+                {recipe && 
+                    <ClaudeRecipe recipe={recipe} />
                 }
                 
             </div>
