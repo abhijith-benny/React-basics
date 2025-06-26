@@ -20,6 +20,7 @@ third-project/vite.config.js
 third-project/package-lock.json
 third-project/eslint.config.js
 third-project/src/images
+third-project/api-key
 
 simply/package.json
 simply/node_modules
@@ -28,3 +29,5 @@ simply/vite.config.js
 simply/package-lock.json
 simply/eslint.config.js
 simply/src/images
+
+.env

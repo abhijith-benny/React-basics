@@ -2,16 +2,23 @@ import ReactDom from 'react-dom';
 import React from 'react';
 import IngredientList from './ingredientlist';
 import ClaudeRecipe from './clauderecipe';
+import RecipeButton from './recipebutton';
+import {getRecipeFromGroq} from './api'
 
 
 function Body(){
-    // Using a state variable to manage the list of ingredients
-    // This allows React to re-render the component when the list changes
-    // const [ingredientList, setIngredientList] = React.useState([]);
+    // You cannot git-ignore only a specific line or variable in a file.
+    // Git can only ignore entire files or directories, not individual lines.
+    // To avoid committing sensitive data, move the api_key to a separate file (e.g., .env or config.js), git-ignore that file, and import it where needed.
     const [ingredientList, setIngredientList] = React.useState([]);
     const [alertMessage, setAlertMessage] = React.useState("");
     const [recipeshown, setRecipeShown] = React.useState(false);
-     
+
+    async function getrecipe(){
+        const recipemark=await getRecipeFromGroq(ingredientList)
+        console.log(recipemark);
+    }
+
     function handlesubmit(formData){
         const ingredient = formData.get("ingredient");
         const trimmedIngredient = ingredient.trim();
@@ -23,7 +30,6 @@ function Body(){
         ) {
             const newList = [...ingredientList, ingredient];
             setIngredientList(newList);
-            console.log(`Added ingredient: ${newList}`);
         } else {
             setAlertMessage("Ingredient already exists");
             setTimeout(() => setAlertMessage(""), 2000);
@@ -51,26 +57,23 @@ function Body(){
                 )}
                 {ingredientList.length > 0 && (
                     <>
-                        {console.log(ingredientList)}
                         <IngredientList ingredients={ingredientList} />
                     </>
                 )}
-                {ingredientList.length > 2 && (
-                    <div className="recipe-ready-section">
-                        <div className="recipe-ready-header">
-                            <h1>Ready for a recipe</h1>
-                            <p>Generate a recipe from your list of ingredients</p>
-                        </div>
-                        <div className="recipe-ready-action">
-                            <button className="generate-recipe-btn" onClick={() => setRecipeShown(true)}>Generate Recipe</button>
-                        </div>
-                    </div>
-                )}
+                <>
+                    {ingredientList.length > 2 && (
+                        <RecipeButton 
+                            recipe={ingredientList} 
+                            getrecipe={getrecipe}
+                        />
+                    )}
+                </>
             </main>
             <div className="recipe-header">
                 {recipeshown && 
                     <ClaudeRecipe />
                 }
+                
             </div>
         </>
     )
