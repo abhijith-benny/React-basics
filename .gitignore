@@ -31,3 +31,12 @@ simply/eslint.config.js
 simply/src/images
 
 .env
+
+fourth-project/package.json
+fourth-project/node_modules
+fourth-project/README.md
+fourth-project/vite.config.js
+fourth-project/package-lock.json
+fourth-project/eslint.config.js
+fourth-project/src/images
+fourth-project/api-key
