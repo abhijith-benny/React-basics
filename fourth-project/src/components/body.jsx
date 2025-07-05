@@ -17,6 +17,19 @@ function Body() {
       })))
   }, [])
 
+  function handleGenerateMeme() {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(res => res.json())
+      .then(data => {
+        const randomIndex = Math.floor(Math.random() * data.data.memes.length);
+        const randomMeme = data.data.memes[randomIndex];
+        setMeme(prevMeme => ({
+          ...prevMeme,
+          imageUrl: randomMeme.url
+        }));
+      });
+  } 
+
   function handleChange(event){
     const {value,name} = event.currentTarget;
     setMeme(prevMeme => ({
@@ -41,7 +54,7 @@ function Body() {
         </label>
 
       </div>
-      <button className="meme-button">Generate Meme</button>
+      <button className="meme-button" onClick={handleGenerateMeme}>Generate Meme</button>
 
       <div className="meme-image-container">
         <img src={meme.imageUrl} className="meme-image" />

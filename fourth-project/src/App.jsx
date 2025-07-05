@@ -1,16 +1,16 @@
-// import Header from "./components/header";
-// import Body from "./components/body";
+import Header from "./components/header";
+import Body from "./components/body";
 
-// function App() {
-//   return (
-//     <>
-//       <Header />
-//       <Body />
-//     </>
-//   );
-// }
+function App() {
+  return (
+    <>
+      <Header />
+      <Body />
+    </>
+  );
+}
 
-// export default App;
+export default App;
 
 
 
@@ -42,27 +42,27 @@
 
 
 
-import WindowTracker  from "./WindowTracker";
-import { useState, useEffect } from "react";
+// import WindowTracker  from "./WindowTracker";
+// import { useState, useEffect } from "react";
 
-export default function App() {
-  const [show, setShow] = useState(true);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+// export default function App() {
+//   const [show, setShow] = useState(true);
+//   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+//   useEffect(() => {
+//     function handleResize() {
+//       setWindowWidth(window.innerWidth);
+//     }
+//     window.addEventListener("resize", handleResize);
+//     return () => {
+//       window.removeEventListener("resize", handleResize);
+//     };
+//   }, []);
 
-    return (
-      <div className="app-container">
-      <button className="window-tracker-btn" onClick={() => setShow(prevShow => !prevShow)}>Window Tracker</button>
-      {show && <WindowTracker />}
-      </div>
-    )
-}
+//     return (
+//       <div className="app-container">
+//       <button className="window-tracker-btn" onClick={() => setShow(prevShow => !prevShow)}>Window Tracker</button>
+//       {show && <WindowTracker />}
+//       </div>
+//     )
+// }
