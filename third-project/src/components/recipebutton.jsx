@@ -1,7 +1,12 @@
 import { useState } from "react";
+import React from "react";
 
 function RecipeSection(props) {
   const [recipeReady, setRecipeReady] = useState(false);
+  const recipeSection = React.useRef(null);
+  
+
+  
 
   const handleClick = async (e) => {
     if (props.getrecipe) {
@@ -9,16 +14,19 @@ function RecipeSection(props) {
       setRecipeReady(true);
 
       // Scroll to recipe after loading
-      const element = document.getElementById('recipe-code');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      
     }
   };
 
+  React.useEffect(()=>{
+    if(recipeReady){
+      recipeSection.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [recipeReady]);
+
   return (
     <div className="recipe-ready-section">
-      <div className="recipe-ready-header">
+      <div className="recipe-ready-header" ref={recipeSection}>
         <h1>Ready for a recipe</h1>
         <p>Generate a recipe from your list of ingredients</p>
       </div>
