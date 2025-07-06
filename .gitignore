@@ -40,3 +40,12 @@ fourth-project/package-lock.json
 fourth-project/eslint.config.js
 fourth-project/src/images
 fourth-project/api-key
+
+Tenzies/package.json
+Tenzies/node_modules
+Tenzies/README.md
+Tenzies/vite.config.js
+Tenzies/package-lock.json
+Tenzies/eslint.config.js
+Tenzies/src/images
+Tenzies/api-key
