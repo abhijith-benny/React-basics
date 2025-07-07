@@ -8,7 +8,7 @@ function App() {
 
     const arr = [];
     for (let i = 0; i < 10; i++) {
-      arr.push(Math.floor(Math.random() * 6) + 1);
+      arr.push({value: (Math.floor(Math.random() * 6) + 1), isHeld:false});
     }
     return arr;
   };
@@ -24,9 +24,15 @@ function App() {
   return (
     <>
       <main className="tenzies">
+        <div className="tenzies-header">
+          Tenzies
+          <br /><span>
+            Roll until all dice are the same. Click each die to freeze it at its current value between rolls
+          </span>
+        </div>
         <div className="dice-container">
-          {randomNumbers.map((num, idx) => (
-            <Die key={idx} value={num} />
+          {arr.map((dieobj, idx) => (
+            <Die key={idx} value={dieobj.value} isHeld={dieobj.isHeld} />
           ))}
         </div>
         <div className="tenzies-title">
