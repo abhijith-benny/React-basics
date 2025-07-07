@@ -13,8 +13,17 @@ function App() {
     return arr;
   };
 
+  function hold(idx){
+    setArr(prevArr => {
+      return prevArr.map((die, i) => {
+        if (i === idx) {
+          return { ...die, isHeld: !die.isHeld };
+        }
+        return die;
+      });
+    });
+  }
 
-  
   function rollDice() {
     setArr(generateRandomNumber());
   }
@@ -32,7 +41,13 @@ function App() {
         </div>
         <div className="dice-container">
           {arr.map((dieobj, idx) => (
-            <Die key={idx} value={dieobj.value} isHeld={dieobj.isHeld} />
+            <Die
+              key={idx}
+              value={dieobj.value}
+              isHeld={dieobj.isHeld}
+              hold={hold}
+              id={idx}
+            />
           ))}
         </div>
         <div className="tenzies-title">
