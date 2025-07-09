@@ -4,7 +4,7 @@ import Confetti from "react-confetti";
 
 function App() {
 
-  const [arr, setArr] = React.useState(generateRandomNumber());
+  const [arr, setArr] = React.useState(() => generateRandomNumber());
   const [gamewon, setGameWon] = React.useState(false);
 
   React.useEffect(() => {
@@ -46,12 +46,20 @@ function App() {
     });
   }
 
+  function rollFull() {
+    setArr(generateRandomNumber());
+    setGameWon(false);
+  }
+
   const randomNumbers = generateRandomNumber();
 
   return (
     <>
       <main className="tenzies">
       {gamewon && <Confetti />}
+      <div aria-live="polite" className="sr-only">
+        {gamewon && <span className="win-message">You won! press "new game" to play again</span>}
+      </div>
         <div className="tenzies-header">
           Tenzies
           <br /><span>
@@ -70,7 +78,7 @@ function App() {
           ))}
         </div>
         <div className="tenzies-title">
-            {gamewon ? <button className="roll-dice" onClick={rollDice}>
+            {gamewon ? <button className="roll-dice" onClick={rollFull}>
                 New Game
             </button> : <button className="roll-dice" onClick={rollDice}>
                 Roll Dice
