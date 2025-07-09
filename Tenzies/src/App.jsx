@@ -25,7 +25,14 @@ function App() {
   }
 
   function rollDice() {
-    setArr(generateRandomNumber());
+    setArr(prevArr => {
+      return prevArr.map(die => {
+        if (!die.isHeld) {
+          return { ...die, value: (Math.floor(Math.random() * 6) + 1) };
+        }
+        return die;
+      });
+    });
   }
 
   const randomNumbers = generateRandomNumber();
