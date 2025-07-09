@@ -1,9 +1,20 @@
 import Die from "./components/die"
 import React from "react";
+import Confetti from "react-confetti";
 
 function App() {
 
   const [arr, setArr] = React.useState(generateRandomNumber());
+  const [gamewon, setGameWon] = React.useState(false);
+
+  React.useEffect(() => {
+    if (arr.every(die => die.isHeld && die.value === arr[0].value)) {
+      setGameWon(true);
+    } else {
+      setGameWon(false);
+    }
+  }, [arr]);
+
   function generateRandomNumber() {
 
     const arr = [];
@@ -40,6 +51,7 @@ function App() {
   return (
     <>
       <main className="tenzies">
+      {gamewon && <Confetti />}
         <div className="tenzies-header">
           Tenzies
           <br /><span>
@@ -58,9 +70,11 @@ function App() {
           ))}
         </div>
         <div className="tenzies-title">
-            <button className="roll-dice" onClick={rollDice}>
+            {gamewon ? <button className="roll-dice" onClick={rollDice}>
+                New Game
+            </button> : <button className="roll-dice" onClick={rollDice}>
                 Roll Dice
-            </button>
+            </button>}
         </div>
       </main>
       <footer className="app-footer">
