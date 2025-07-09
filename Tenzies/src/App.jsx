@@ -53,6 +53,14 @@ function App() {
 
   const randomNumbers = generateRandomNumber();
 
+  const newGameButtonRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (gamewon && newGameButtonRef.current) {
+      newGameButtonRef.current.focus();
+    }
+  }, [gamewon]);
+
   return (
     <>
       <main className="tenzies">
@@ -78,11 +86,19 @@ function App() {
           ))}
         </div>
         <div className="tenzies-title">
-            {gamewon ? <button className="roll-dice" onClick={rollFull}>
+            {gamewon ? (
+              <button
+                className="roll-dice"
+                onClick={rollFull}
+                ref={newGameButtonRef}
+              >
                 New Game
-            </button> : <button className="roll-dice" onClick={rollDice}>
+              </button>
+            ) : (
+              <button className="roll-dice" onClick={rollDice}>
                 Roll Dice
-            </button>}
+              </button>
+            )}
         </div>
       </main>
       <footer className="app-footer">
