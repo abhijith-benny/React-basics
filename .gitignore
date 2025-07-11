@@ -49,3 +49,11 @@ Tenzies/package-lock.json
 Tenzies/eslint.config.js
 Tenzies/src/images
 Tenzies/api-key
+
+assembly-endgame/package.json
+assembly-endgame/node_modules
+assembly-endgame/README.md
+assembly-endgame/vite.config.js
+assembly-endgame/package-lock.json
+assembly-endgame/eslint.config.js
+assembly-endgame/src/images
