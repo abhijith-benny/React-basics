@@ -3,6 +3,7 @@ import Status from "./components/status";
 import LanguageList from "./components/languagelist";
 import Word from "./components/word";
 import KeyBoard from "./components/keyboard";
+import NewGameButton from "./components/newgamebutton";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <LanguageList />
         <Word />
         <KeyBoard />
+        <NewGameButton />
     </>
   );
 }

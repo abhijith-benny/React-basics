@@ -133,3 +133,26 @@
         min-width: 30px;
     }
 }
+
+/* New Game Button */
+.new-game-button {
+    background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(106, 130, 251, 0.12);
+    transition: background 0.2s, transform 0.2s;
+    margin: 7px auto;
+    display: block;
+}
+
+.new-game-button:hover,
+.new-game-button:focus {
+    background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+    transform: translateY(-2px) scale(1.04);
+    outline: none;
+}
