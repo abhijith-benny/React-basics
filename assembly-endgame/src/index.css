@@ -78,3 +78,58 @@
     margin: 1.5rem auto;
     max-width: 400px;
 }
+
+
+/* keyboard */
+/* Keyboard Container */
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem auto;
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Keyboard Rows */
+.keyboard .row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    width: 100%;
+}
+
+/* Key Styles */
+.key {
+    background: #f5f5f5;
+    color: #222;
+    border: 1px solid #bbb;
+    border-radius: 5px;
+    padding: 0.7rem 1.1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    min-width: 40px;
+    text-align: center;
+    user-select: none;
+}
+
+.key:hover,
+.key:focus {
+    background: #d1d1ff;
+    box-shadow: 0 2px 6px rgba(100, 100, 255, 0.12);
+    outline: none;
+}
+
+/* Responsive: Stack keys on small screens */
+@media (max-width: 600px) {
+    .keyboard {
+        max-width: 100%;
+    }
+    .key {
+        font-size: 0.9rem;
+        padding: 0.6rem 0.7rem;
+        min-width: 30px;
+    }
+}
