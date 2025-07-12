@@ -12,16 +12,16 @@ function App() {
         guessedLetters: [],
     });
     const [selectedWord, setSelectedWord] = React.useState("");
-  return (
-    <>
-        <Header />
-        <Status />
-        <LanguageList />
-        <Word word={selectedWord} />
-        <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} />
-        <NewGameButton />
-    </>
-  );
+    return (
+        <>
+            <Header />
+            <Status />
+            <LanguageList />
+            <Word selectedWord={selectedWord} currentWord={gameState.currentWord} />
+            <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} />
+            <NewGameButton />
+        </>
+    );
 }
 
 export default App;
