@@ -3,7 +3,7 @@ import React from "react";
 function Word({ word, guessedLetters, onLetterClick }) {
     const [currentWord, setCurrentWord] = React.useState("react");
     const letterElements = currentWord.split("").map((letter) => letter.toLowerCase());
-    console.log(letterElements);
+    console.log("Current word:", {word});
     return (
         <div className="word" style={{ display: "flex", gap: "4px" }}>
             {letterElements.map((letter, idx) => (
