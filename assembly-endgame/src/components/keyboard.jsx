@@ -1,54 +1,59 @@
-import React from 'react';
+import { useState } from "react"
+import { clsx } from "clsx"
 
-function KeyBoard({setSelectedWord}) {
-    const [guessedLetters, setGuessedLetters] = React.useState([]);
-    const handleKeyClick = (letter) => {
-        if (!guessedLetters.includes(letter)) {
-            const updated = [...guessedLetters, letter];
-            setGuessedLetters(updated);
-            setSelectedWord(updated.join(""));
-        }
-    };
-    React.useEffect(() => {
-        setSelectedWord(guessedLetters.join(""));
-    }, [guessedLetters]);
+export default function KeyBoard({setSelectedWord, currentWord}) {
+    const [guessedLetters, setGuessedLetters] = useState([])
+
+    const alphabet = "abcdefghijklmnopqrstuvwxyz"
+
+    function addGuessedLetter(letter) {
+        setGuessedLetters(prevLetters =>
+            prevLetters.includes(letter) ?
+                prevLetters :
+                [...prevLetters, letter]
+        )
+    }
+
+
+    const letterElements = currentWord.split("").map((letter, index) => (
+        <span key={index}>{letter.toUpperCase()}</span>
+    ))
+
+    const keyboardElements = alphabet.split("").map(letter => {
+        const isGuessed = guessedLetters.includes(letter)
+        const isCorrect = isGuessed && currentWord.includes(letter)
+        const isWrong = isGuessed && !currentWord.includes(letter)
+        const className = clsx({
+            correct: isCorrect,
+            wrong: isWrong
+        })
+        
+        console.log(className)
+        
+        return (
+            <button
+                className={className}
+                key={letter}
+                onClick={() => addGuessedLetter(letter)}
+            >
+                {letter.toUpperCase()}
+            </button>
+        )
+    })
 
 
     return (
-        <div className="keyboard">
-            <div className="row">
-                <button className="key" onClick={() => handleKeyClick("A")}>A</button>
-                <button className="key" onClick={() => handleKeyClick("B")}>B</button>
-                <button className="key" onClick={() => handleKeyClick("C")}>C</button>
-                <button className="key" onClick={() => handleKeyClick("D")}>D</button>
-                <button className="key" onClick={() => handleKeyClick("E")}>E</button>
-                <button className="key" onClick={() => handleKeyClick("F")}>F</button>
-                <button className="key" onClick={() => handleKeyClick("G")}>G</button>
-                <button className="key" onClick={() => handleKeyClick("H")}>H</button>
-                <button className="key" onClick={() => handleKeyClick("I")}>I</button>
-                <button className="key" onClick={() => handleKeyClick("J")}>J</button>
-            </div>
-            <div className="row">
-                <button className="key" onClick={() => handleKeyClick("K")}>K</button>
-                <button className="key" onClick={() => handleKeyClick("L")}>L</button>
-                <button className="key" onClick={() => handleKeyClick("M")}>M</button>
-                <button className="key" onClick={() => handleKeyClick("N")}>N</button>
-                <button className="key" onClick={() => handleKeyClick("O")}>O</button>
-                <button className="key" onClick={() => handleKeyClick("P")}>P</button>
-                <button className="key" onClick={() => handleKeyClick("Q")}>Q</button>
-                <button className="key" onClick={() => handleKeyClick("R")}>R</button>
-                <button className="key" onClick={() => handleKeyClick("S")}>S</button>
-                <button className="key" onClick={() => handleKeyClick("T")}>T</button>
-            </div>
-            <div className="row">
-                <button className="key" onClick={() => handleKeyClick("U")}>U</button>
-                <button className="key" onClick={() => handleKeyClick("V")}>V</button>
-                <button className="key" onClick={() => handleKeyClick("W")}>W</button>
-                <button className="key" onClick={() => handleKeyClick("X")}>X</button>
-                <button className="key" onClick={() => handleKeyClick("Y")}>Y</button>
-                <button className="key" onClick={() => handleKeyClick("Z")}>Z</button>
-            </div>
-        </div>
-    );
+        <section className="keyboard-container">
+  <div className="keyboard-row">
+    {keyboardElements.slice(0, 10)}
+  </div>
+  <div className="keyboard-row">
+    {keyboardElements.slice(10, 20)}
+  </div>
+  <div className="keyboard-row third-row">
+    {keyboardElements.slice(20, 26)}
+  </div>
+</section>
+
+    )
 }
-export default KeyBoard;

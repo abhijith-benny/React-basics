@@ -82,23 +82,47 @@
 
 /* keyboard */
 /* Keyboard Container */
-.keyboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2rem auto;
-    max-width: 500px;
-    width: 100%;
+.keyboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem auto;
+  max-width: 450px;
 }
 
-/* Keyboard Rows */
-.keyboard .row {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 8px;
-    width: 100%;
+.keyboard-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
+
+.keyboard-row.third-row {
+  justify-content: center;
+}
+
+.keyboard-container button {
+  height: 35px;
+  width: 35px;
+  background-color: #FCBA29;
+  border: 1px solid #D7D7D7;
+  border-radius: 3px;
+  cursor: pointer;
+  margin: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.keyboard-container button.correct {
+  background-color: #10A95B;
+}
+
+.keyboard-container button.wrong {
+  background-color: #EC5D49;
+}
+
+
+
+
 
 /* Key Styles */
 .key {

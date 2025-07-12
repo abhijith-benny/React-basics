@@ -18,7 +18,7 @@ function App() {
         <Status />
         <LanguageList />
         <Word word={selectedWord} />
-        <KeyBoard setSelectedWord={setSelectedWord} />
+        <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} />
         <NewGameButton />
     </>
   );
