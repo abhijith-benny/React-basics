@@ -8,7 +8,7 @@ import React from "react";
 
 function App() {
     const [gameState, setGameState] = React.useState({
-        currentWord: "example", // This should be dynamically set based on the selected language
+        currentWord: "react", // This should be dynamically set based on the selected language
         guessedLetters: [],
     });
     const [wrongGuessCount,setWrongGuessCount]=React.useState([]);
