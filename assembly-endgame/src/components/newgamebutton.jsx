@@ -6,13 +6,15 @@ function NewGameButton({ IsGameOver, IsGameWon }) {
     }
     return (
         <>
-            {IsGameOver && (
-                <button className="new-game-button">
-                    New Game
-                </button>
-            )}
-            {IsGameWon && (
-                <button className="new-game-button">
+            {(IsGameOver || IsGameWon) && (
+                <button
+                    className="new-game-button"
+                    onClick={() => {
+                        if (typeof window !== "undefined" && window.location) {
+                            window.location.reload();
+                        }
+                    }}
+                >
                     New Game
                 </button>
             )}

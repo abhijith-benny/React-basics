@@ -123,6 +123,10 @@
 .keyboard-container button:hover {
   background-color: #b0b0b0;
 }
+.keyboard-container button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
 
 .keyboard-container button.correct {
   background-color: #10A95B;

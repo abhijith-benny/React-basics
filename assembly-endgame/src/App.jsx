@@ -5,10 +5,11 @@ import Word from "./components/word";
 import KeyBoard from "./components/keyboard";
 import NewGameButton from "./components/newgamebutton";
 import React from "react";
+import words from "./components/words.js";
 
 function App() {
     const [gameState, setGameState] = React.useState({
-        currentWord: "react", // This should be dynamically set based on the selected language
+        currentWord: words[Math.floor(Math.random() * words.length)], // Random word from words.js
         guessedLetters: [],
     });
     const [wrongGuessCount, setWrongGuessCount] = React.useState(0);
@@ -22,7 +23,7 @@ function App() {
             <Status IsGameOver={IsGameOver} IsGameWon={IsGameWon} wrongGuessCount={wrongGuessCount} isCorrectGuess={isCorrectGuess} />
             <LanguageList wrongGuessCount={wrongGuessCount} setIsGameOver={setIsGameOver} />
             <Word selectedWord={selectedWord} currentWord={gameState.currentWord} setIsGameWon={setIsGameWon} />
-            <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} setWrongGuessCount={setWrongGuessCount} setIsCorrectGuess={setIsCorrectGuess} />
+            <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} setWrongGuessCount={setWrongGuessCount} setIsCorrectGuess={setIsCorrectGuess} IsGameOver={IsGameOver} IsGameWon={IsGameWon} />
             <NewGameButton IsGameOver={IsGameOver} IsGameWon={IsGameWon} />
         </>
     );

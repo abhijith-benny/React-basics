@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { clsx } from "clsx";
 import React from "react";
 
-export default function KeyBoard({ setSelectedWord, currentWord, setWrongGuessCount, setIsCorrectGuess }) {
+export default function KeyBoard({ setSelectedWord, currentWord, setWrongGuessCount, setIsCorrectGuess , IsGameOver , IsGameWon }) {
     const [guessedLetters, setGuessedLetters] = useState([]);
 
     useEffect(() => {
@@ -67,21 +67,24 @@ export default function KeyBoard({ setSelectedWord, currentWord, setWrongGuessCo
             <div className="keyboard-row">
                 {keyboardElements.slice(0, 10).map(el =>
                     React.cloneElement(el, {
-                        onClick: () => handleKeyClick(el.key)
+                        onClick: () => !(IsGameOver || IsGameWon) && handleKeyClick(el.key),
+                        disabled: IsGameOver || IsGameWon
                     })
                 )}
             </div>
             <div className="keyboard-row">
                 {keyboardElements.slice(10, 20).map(el =>
                     React.cloneElement(el, {
-                        onClick: () => handleKeyClick(el.key)
+                        onClick: () => !(IsGameOver || IsGameWon) && handleKeyClick(el.key),
+                        disabled: IsGameOver || IsGameWon
                     })
                 )}
             </div>
             <div className="keyboard-row third-row">
                 {keyboardElements.slice(20, 26).map(el =>
                     React.cloneElement(el, {
-                        onClick: () => handleKeyClick(el.key)
+                        onClick: () => !(IsGameOver || IsGameWon) && handleKeyClick(el.key),
+                        disabled: IsGameOver || IsGameWon
                     })
                 )}
             </div>
