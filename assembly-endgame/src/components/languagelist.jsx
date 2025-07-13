@@ -3,12 +3,8 @@ import { useEffect } from "react";
 import { FaSkullCrossbones } from "react-icons/fa";
 
 
-function LanguageList({ wrongGuessCount }) {
+function LanguageList({ wrongGuessCount, setIsGameOver }) {
     // Use wrongGuessCount directly if needed, avoid extra assignment and logging
-
-    useEffect(() => {
-        console.log(wrongGuessCount);
-    }, [wrongGuessCount]);
     const language = languages.map((language, index) => {
         return (
             <div key={index} className="language" style={{ backgroundColor: language.backgroundColor, color: language.color }}>
@@ -16,6 +12,11 @@ function LanguageList({ wrongGuessCount }) {
             </div>
         );
     });
+    useEffect(() => {
+        if (wrongGuessCount === 8) {
+            setIsGameOver(true);
+        }
+    }, [wrongGuessCount, setIsGameOver]);
     
     return (
         <div className="language-list">

@@ -1,10 +1,22 @@
 
 
-function NewGameButton() {
+function NewGameButton({ IsGameOver, IsGameWon }) {
+    if (!IsGameOver && !IsGameWon) {
+        return null;
+    }
     return (
-        <button className="new-game-button">
-            New Game
-        </button>
+        <>
+            {IsGameOver && (
+                <button className="new-game-button">
+                    New Game
+                </button>
+            )}
+            {IsGameWon && (
+                <button className="new-game-button">
+                    New Game
+                </button>
+            )}
+        </>
     );
 }
 export default NewGameButton;

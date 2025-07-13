@@ -45,7 +45,7 @@ export default function KeyBoard({setSelectedWord, currentWord,setWrongGuessCoun
             wrong: isWrong
         })
         
-        
+
         return (
             <button
                 className={className}
