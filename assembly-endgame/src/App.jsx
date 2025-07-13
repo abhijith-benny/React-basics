@@ -22,7 +22,7 @@ function App() {
             <Header />
             <Status IsGameOver={IsGameOver} IsGameWon={IsGameWon} wrongGuessCount={wrongGuessCount} isCorrectGuess={isCorrectGuess} />
             <LanguageList wrongGuessCount={wrongGuessCount} setIsGameOver={setIsGameOver} />
-            <Word selectedWord={selectedWord} currentWord={gameState.currentWord} setIsGameWon={setIsGameWon} />
+            <Word selectedWord={selectedWord} currentWord={gameState.currentWord} setIsGameWon={setIsGameWon} wrongGuessCount={wrongGuessCount} />
             <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} setWrongGuessCount={setWrongGuessCount} setIsCorrectGuess={setIsCorrectGuess} IsGameOver={IsGameOver} IsGameWon={IsGameWon} />
             <NewGameButton IsGameOver={IsGameOver} IsGameWon={IsGameWon} />
         </>
