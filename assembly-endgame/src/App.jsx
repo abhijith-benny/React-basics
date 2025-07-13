@@ -15,13 +15,14 @@ function App() {
     const [selectedWord, setSelectedWord] = React.useState("");
     const [IsGameOver, setIsGameOver] = React.useState(false);
     const [IsGameWon, setIsGameWon] = React.useState(false);
+    const [isCorrectGuess, setIsCorrectGuess] = React.useState(false);
     return (
         <>
             <Header />
-            <Status IsGameOver={IsGameOver} IsGameWon={IsGameWon} wrongGuessCount={wrongGuessCount} />
+            <Status IsGameOver={IsGameOver} IsGameWon={IsGameWon} wrongGuessCount={wrongGuessCount} isCorrectGuess={isCorrectGuess} />
             <LanguageList wrongGuessCount={wrongGuessCount} setIsGameOver={setIsGameOver} />
             <Word selectedWord={selectedWord} currentWord={gameState.currentWord} setIsGameWon={setIsGameWon} />
-            <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} setWrongGuessCount={setWrongGuessCount} />
+            <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} setWrongGuessCount={setWrongGuessCount} setIsCorrectGuess={setIsCorrectGuess} />
             <NewGameButton IsGameOver={IsGameOver} IsGameWon={IsGameWon} />
         </>
     );

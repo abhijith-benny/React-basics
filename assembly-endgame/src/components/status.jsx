@@ -1,6 +1,6 @@
 import Confetti from "react-confetti";
 
-function Status({ IsGameOver, IsGameWon, wrongGuessCount }) {
+function Status({ IsGameOver, IsGameWon, wrongGuessCount, isCorrectGuess }) {
     
     // console.log("wrongGuessCount:", wrongGuessCount);
     // if (!IsGameWon && !IsGameOver) {
@@ -13,11 +13,11 @@ function Status({ IsGameOver, IsGameWon, wrongGuessCount }) {
         } else {
             statusStyle = { backgroundColor: '#ba2a2a', color: 'white', border: 'none', boxShadow: 'none' };
         }
-    } else if (wrongGuessCount > 0 && !IsGameWon && !IsGameOver) {
+    } else if (wrongGuessCount > 0 && !IsGameWon && !IsGameOver && !isCorrectGuess) {
         statusStyle = { minHeight: "80px", backgroundColor: '#7a5ea7', color: 'white', border: 'none', boxShadow: 'none', paddingTop: '25px', fontSize: '1.1rem', fontWeight: '500', lineHeight: '1.5' };
     } else if (IsGameWon) {
         statusStyle = { minHeight: "80px", backgroundColor: '#10a95b', color: 'white', border: 'none', boxShadow: 'none' };
-    } else if (wrongGuessCount === 0) {
+    } else if (wrongGuessCount === 0 || isCorrectGuess) {
         statusStyle = { minHeight: "80px", backgroundColor: '#262626', border: 'none', boxShadow: 'none' };
     }
 
@@ -39,7 +39,7 @@ function Status({ IsGameOver, IsGameWon, wrongGuessCount }) {
             className="status"
             style={statusStyle}
         >
-            {wrongGuessCount > 0 && wrongGuessCount <= 8 && !IsGameWon && !IsGameOver && (
+            {wrongGuessCount > 0 && wrongGuessCount <= 8 && !IsGameWon && !IsGameOver && !isCorrectGuess && (
                 <p>{wrongGuessMessages[wrongGuessCount - 1]}</p>
             )}
 
