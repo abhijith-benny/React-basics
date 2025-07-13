@@ -11,14 +11,14 @@ function App() {
         currentWord: "react", // This should be dynamically set based on the selected language
         guessedLetters: [],
     });
-    const [wrongGuessCount,setWrongGuessCount]=React.useState([]);
+    const [wrongGuessCount, setWrongGuessCount] = React.useState(0);
     const [selectedWord, setSelectedWord] = React.useState("");
     const [IsGameOver, setIsGameOver] = React.useState(false);
     const [IsGameWon, setIsGameWon] = React.useState(false);
     return (
         <>
             <Header />
-            <Status IsGameOver={IsGameOver} IsGameWon={IsGameWon} />
+            <Status IsGameOver={IsGameOver} IsGameWon={IsGameWon} wrongGuessCount={wrongGuessCount} />
             <LanguageList wrongGuessCount={wrongGuessCount} setIsGameOver={setIsGameOver} />
             <Word selectedWord={selectedWord} currentWord={gameState.currentWord} setIsGameWon={setIsGameWon} />
             <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} setWrongGuessCount={setWrongGuessCount} />
