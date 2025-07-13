@@ -71,14 +71,23 @@
 
 
 /* word */
-.word{
+.word {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 20px;
+}
+
+.word > span {
+    height: 40px;
+    width: 40px;
+    background-color: #323232;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1.5rem auto;
-    max-width: 400px;
+    font-size: 1.125rem;
+    border-bottom: 1px solid #F9F4DA;
 }
-
 
 /* keyboard */
 /* Keyboard Container */

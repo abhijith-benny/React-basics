@@ -2,8 +2,15 @@ import { useState } from "react"
 import { clsx } from "clsx"
 import React from "react"
 
-export default function KeyBoard({setSelectedWord, currentWord}) {
+export default function KeyBoard({setSelectedWord, currentWord,setWrongGuessCount}) {
     const [guessedLetters, setGuessedLetters] = useState([])
+
+    React.useEffect(() => {
+        const wrongGuesses = guessedLetters.filter(
+        letter => !currentWord.includes(letter)
+    ).length;
+    setWrongGuessCount(wrongGuesses);
+    }, [guessedLetters, currentWord]); // depend on both!
 
 
     const alphabet = "abcdefghijklmnopqrstuvwxyz"
@@ -27,9 +34,7 @@ export default function KeyBoard({setSelectedWord, currentWord}) {
     }, [guessedLetters]);
     
 
-    const letterElements = currentWord.split("").map((letter, index) => (
-        <span key={index}>{letter.toUpperCase()}</span>
-    ))
+    
 
     const keyboardElements = alphabet.split("").map(letter => {
         const isGuessed = guessedLetters.includes(letter)

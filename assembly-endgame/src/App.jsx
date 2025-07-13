@@ -11,14 +11,15 @@ function App() {
         currentWord: "example", // This should be dynamically set based on the selected language
         guessedLetters: [],
     });
+    const [wrongGuessCount,setWrongGuessCount]=React.useState([]);
     const [selectedWord, setSelectedWord] = React.useState("");
     return (
         <>
             <Header />
             <Status />
-            <LanguageList />
+            <LanguageList wrongGuessCount={wrongGuessCount} />
             <Word selectedWord={selectedWord} currentWord={gameState.currentWord} />
-            <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} />
+            <KeyBoard setSelectedWord={setSelectedWord} currentWord={gameState.currentWord} setWrongGuessCount={setWrongGuessCount} />
             <NewGameButton />
         </>
     );
